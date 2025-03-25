@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://baw1yspwhhxd7"]
+
+[ext_resource type="Script" path="res://Scenes/NPC/npc.gd" id="1_0b0ve"]
+[ext_resource type="Texture2D" uid="uid://dkvpb346dsefu" path="res://Ninja Adventure - Asset Pack/Actor/Characters/GreenPig/SpriteSheet.png" id="1_tqox1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esb5v"]
+atlas = ExtResource("1_tqox1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sl02"]
+size = Vector2(10, 12)
+
+[node name="NPC" type="StaticBody2D"]
+script = ExtResource("1_0b0ve")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_esb5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_0sl02")

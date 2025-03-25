@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://baw1yspwhhxd7"]
+[gd_scene load_steps=8 format=3 uid="uid://baw1yspwhhxd7"]
 
 [ext_resource type="Script" path="res://Scenes/NPC/npc.gd" id="1_0b0ve"]
 [ext_resource type="Texture2D" uid="uid://dkvpb346dsefu" path="res://Ninja Adventure - Asset Pack/Actor/Characters/GreenPig/SpriteSheet.png" id="1_tqox1"]
+[ext_resource type="Texture2D" uid="uid://6ovaqouitd3n" path="res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_umlht"]
+[ext_resource type="Texture2D" uid="uid://rwc1i3wwf6q4" path="res://Ninja Adventure - Asset Pack/Actor/Characters/GreenPig/Faceset.png" id="4_eqanh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_esb5v"]
 atlas = ExtResource("1_tqox1")
@@ -9,6 +11,10 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0sl02"]
 size = Vector2(10, 12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_08yv0"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
 
 [node name="NPC" type="StaticBody2D"]
 script = ExtResource("1_0b0ve")
@@ -19,3 +25,35 @@ texture = SubResource("AtlasTexture_esb5v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_0sl02")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -198.0
+offset_right = -752.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3.21, 3.21)
+texture = ExtResource("3_umlht")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TextureRect"]
+offset_left = 6.23053
+offset_top = 14.0187
+offset_right = 44.2305
+offset_bottom = 52.0187
+texture = ExtResource("4_eqanh")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 265.0
+offset_top = 499.0
+offset_right = 397.0
+offset_bottom = 566.0
+text = "uhgjh"
+label_settings = SubResource("LabelSettings_08yv0")

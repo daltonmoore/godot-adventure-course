@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b46lxtr254jux"]
+
+[ext_resource type="Script" path="res://Scenes/Switch/switch_puzzle_manager.gd" id="1_7bngb"]
+[ext_resource type="AudioStream" uid="uid://cdr5sdpmt88u1" path="res://Ninja Adventure - Asset Pack/Sounds/Game/Success1.wav" id="2_33swy"]
+
+[node name="SwitchPuzzleManager" type="Marker2D"]
+script = ExtResource("1_7bngb")
+
+[node name="SuccessSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_33swy")
+volume_db = 3.91

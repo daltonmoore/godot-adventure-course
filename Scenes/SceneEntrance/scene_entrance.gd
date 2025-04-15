@@ -6,9 +6,16 @@ extends Area2D
 @export var player_spawn_position:= Vector2.ZERO
 # TODO: Fix this. It doesn't make sense that we get the spawn point from a door that isn't in the next scene.
 # it would be better to get the spawn point from the door you're supposedly walking through in the next scene. 
+
+var frames_per_draw: int = 60
+var current_frame_count: int = 0
+
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
-		queue_redraw()
+		current_frame_count+=1
+		if current_frame_count >= frames_per_draw:
+			queue_redraw()
+			current_frame_count = 0
 
 func _draw() -> void:
 	if Engine.is_editor_hint():

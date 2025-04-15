@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://baw1yspwhhxd7"]
+[gd_scene load_steps=10 format=3 uid="uid://baw1yspwhhxd7"]
 
 [ext_resource type="Script" path="res://Scenes/NPC/npc.gd" id="1_0b0ve"]
 [ext_resource type="Texture2D" uid="uid://dkvpb346dsefu" path="res://Ninja Adventure - Asset Pack/Actor/Characters/GreenPig/SpriteSheet.png" id="1_tqox1"]
 [ext_resource type="Texture2D" uid="uid://6ovaqouitd3n" path="res://Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_umlht"]
 [ext_resource type="Texture2D" uid="uid://rwc1i3wwf6q4" path="res://Ninja Adventure - Asset Pack/Actor/Characters/GreenPig/Faceset.png" id="4_eqanh"]
+[ext_resource type="AudioStream" uid="uid://diq32j87h2owq" path="res://Ninja Adventure - Asset Pack/Sounds/Game/Voice3.wav" id="5_32ggd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_esb5v"]
 atlas = ExtResource("1_tqox1")
@@ -16,7 +17,11 @@ size = Vector2(10, 12)
 font_size = 48
 font_color = Color(0, 0, 0, 1)
 
-[node name="NPC" type="StaticBody2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_nvxf1"]
+font_size = 24
+
+[node name="NPC" type="StaticBody2D" groups=["interactable"]]
+process_mode = 3
 script = ExtResource("1_0b0ve")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -29,7 +34,7 @@ shape = SubResource("RectangleShape2D_0sl02")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="DialogBoxTexture" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -43,17 +48,43 @@ grow_vertical = 0
 scale = Vector2(3.21, 3.21)
 texture = ExtResource("3_umlht")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TextureRect"]
+[node name="NPCIcon" type="TextureRect" parent="CanvasLayer/DialogBoxTexture"]
+layout_mode = 0
 offset_left = 6.23053
 offset_top = 14.0187
 offset_right = 44.2305
 offset_bottom = 52.0187
 texture = ExtResource("4_eqanh")
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DialogBoxTexture"]
+layout_mode = 0
+offset_left = 245.483
+offset_top = -27.4143
+offset_right = 285.483
+offset_bottom = 12.5857
+
+[node name="DialogLabel" type="Label" parent="CanvasLayer"]
 offset_left = 265.0
 offset_top = 499.0
 offset_right = 397.0
 offset_bottom = 566.0
 text = "uhgjh"
 label_settings = SubResource("LabelSettings_08yv0")
+
+[node name="NameLabel" type="Label" parent="CanvasLayer"]
+offset_left = 124.0
+offset_top = 448.0
+offset_right = 322.0
+offset_bottom = 482.0
+text = "Green Pig"
+label_settings = SubResource("LabelSettings_nvxf1")
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-2, 0)
+stream = ExtResource("5_32ggd")
+
+[node name="TalkSFXTimer" type="Timer" parent="."]
+wait_time = 0.125
+
+[connection signal="timeout" from="TalkSFXTimer" to="." method="_on_talk_sfx_timer_timeout"]

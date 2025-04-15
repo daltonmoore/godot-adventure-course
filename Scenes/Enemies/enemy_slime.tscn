@@ -1,0 +1,213 @@
+[gd_scene load_steps=26 format=3 uid="uid://b3simq78ddl67"]
+
+[ext_resource type="Texture2D" uid="uid://blwnpb64e8tg0" path="res://Ninja Adventure - Asset Pack/Actor/Monsters/Slime/Slime.png" id="1_spf6o"]
+[ext_resource type="Script" path="res://Scenes/Enemies/enemy_slime.gd" id="1_wc5sp"]
+[ext_resource type="AudioStream" uid="uid://bayo3ldki1djy" path="res://Ninja Adventure - Asset Pack/Sounds/Game/Hit1.wav" id="3_2tngh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b04sy"]
+radius = 80.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itj5x"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlsvq"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd7aj"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2ged"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4glqx"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5qrl"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3d7d"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvcui"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_two2u"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tftp5"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbei0"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1qbp"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrbxd"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj4ns"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od8r3"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aetlw"]
+atlas = ExtResource("1_spf6o")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qrihq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itj5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlsvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd7aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2ged")
+}],
+"loop": true,
+"name": &"move_down",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4glqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5qrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3d7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvcui")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_two2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tftp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbei0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1qbp")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrbxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj4ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od8r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aetlw")
+}],
+"loop": true,
+"name": &"move_up",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_25s3l"]
+radius = 6.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4h88f"]
+font_size = 9
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kvqgd"]
+font_size = 9
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y4wjf"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 29.15
+initial_velocity_max = 60.0
+scale_min = 2.0
+scale_max = 5.35
+color = Color(0.27451, 0.670588, 0.760784, 1)
+
+[node name="EnemySlime" type="CharacterBody2D"]
+collision_layer = 16
+script = ExtResource("1_wc5sp")
+
+[node name="PlayerDetectArea2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectArea2D"]
+shape = SubResource("CircleShape2D_b04sy")
+debug_color = Color(0.231089, 0.637749, 0, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qrihq")
+animation = &"move_down"
+frame_progress = 0.141662
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_25s3l")
+
+[node name="PreferHorizontalLabel" type="Label" parent="."]
+offset_left = -64.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = -11.0
+text = "Prefer Horizontal: "
+label_settings = SubResource("LabelSettings_4h88f")
+
+[node name="PreferHorizontalValue" type="Label" parent="."]
+offset_left = 16.0
+offset_top = -24.0
+offset_right = 37.0
+offset_bottom = -11.0
+text = "false"
+label_settings = SubResource("LabelSettings_kvqgd")
+
+[node name="DamageSFX" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, 0)
+stream = ExtResource("3_2tngh")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_y4wjf")
+one_shot = true
+explosiveness = 0.8
+
+[connection signal="body_entered" from="PlayerDetectArea2D" to="." method="_on_player_detect_area_2d_body_entered"]
